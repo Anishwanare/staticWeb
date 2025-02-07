@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const candidates = [
     { name: "Harsha P", previousRole: "Graphic Designer", newRole: "UI/UX Designer", salary: "4 LPA", image: "https://storage.googleapis.com/a1aa/image/kdZyroQfPYeAWVDc_27FZky6b2et6nFczqVH7KIC_4g.jpg" },
@@ -12,6 +13,7 @@ const candidates = [
 const SkilledCandidatesCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(3);
+    const totalSlides = Math.ceil(candidates.length / itemsPerPage);
 
     // Adjust items per page based on screen size
     useEffect(() => {
@@ -25,8 +27,6 @@ const SkilledCandidatesCarousel = () => {
         return () => window.removeEventListener("resize", updateItemsPerPage);
     }, []);
 
-    const totalSlides = Math.ceil(candidates.length / itemsPerPage);
-
     // Auto slide every 3 seconds
     useEffect(() => {
         const interval = setInterval(() => {
@@ -37,26 +37,35 @@ const SkilledCandidatesCarousel = () => {
     }, [totalSlides]);
 
     return (
-        <div className="relative w-full max-w-6xl mx-auto px-6 py-14">
+        <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="relative w-full max-w-6xl mx-auto px-6 py-14">
             {/* Heading */}
-            <h1 className="text-center text-4xl font-bold mb-10">
+            <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 1 }}
+                className="text-center text-4xl font-bold mb-10">
                 Progression for <span className="text-orange-500">Skilled Candidates</span>
-            </h1>
+            </motion.h1>
 
             {/* Carousel Container */}
             <div className="overflow-hidden">
-                <div 
+                <motion.div
                     className="flex transition-transform duration-700 ease-in-out"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    animate={{ x: `-${currentIndex * 100}%` }}
                 >
                     {Array(totalSlides).fill().map((_, slideIndex) => (
                         <div key={slideIndex} className="flex min-w-full justify-center gap-6">
                             {candidates
                                 .slice(slideIndex * itemsPerPage, (slideIndex + 1) * itemsPerPage)
                                 .map((candidate, index) => (
-                                    <div
+                                    <motion.div
                                         key={index}
-                                        className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center w-[90%] sm:w-[30%] transition-transform duration-500 transform hover:scale-105"
+                                        whileHover={{ scale: 1.05 }}
+                                        className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center w-[90%] sm:w-[30%] transition-transform duration-500"
                                     >
                                         <img
                                             src={candidate.image}
@@ -68,13 +77,13 @@ const SkilledCandidatesCarousel = () => {
                                             {candidate.previousRole} → {candidate.newRole}
                                         </p>
                                         <p className="text-blue-600 font-bold text-lg mt-2">{candidate.salary}</p>
-                                    </div>
+                                    </motion.div>
                                 ))}
                         </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

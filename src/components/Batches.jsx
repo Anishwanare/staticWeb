@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const batches = [
     {
@@ -40,11 +41,26 @@ const batches = [
 
 const Batches = () => {
     return (
-        <div className="container mx-auto px-4 py-8  bg-gray-50">
-            <h1 className="text-4xl font-bold text-center text-orange-600 mb-2 animate-fade-in">
+        <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="container mx-auto px-4 py-12 bg-gray-50">
+            <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+            viewport={{ once: true }}
+                className="text-4xl font-bold text-center text-orange-600 mb-2 animate-fade-in ">
                 Upcoming Batches
-            </h1>
-            <p className="text-center text-green-600 mb-8 animate-fade-in delay-100">
+            </motion.h1>
+            <p
+                initial={{ opacity: 0, y: -40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-center text-green-600 mb-8 animate-fade-in delay-100 md:my-6">
                 Stay updated on our upcoming batches. Explore the batch schedule below
                 to learn about our latest courses, workshops, and training programs.
             </p>
@@ -64,7 +80,7 @@ const Batches = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 };
 

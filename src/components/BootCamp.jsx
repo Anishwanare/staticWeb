@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const bootcampPlans = [
     {
@@ -68,9 +69,26 @@ const bootcampPlans = [
     },
 ];
 
+// Motion Variants
+const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+const containerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 } },
+};
+
 const PlanCard = ({ title, planName, duration, certification, features, image, color }) => {
     return (
-        <div className={`rounded-xl shadow-lg p-6 w-full sm:w-80 md:w-72 lg:w-80 xl:w-96 text-white ${color} hover:scale-105 transition-transform duration-300`}>
+        <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className={`rounded-xl shadow-lg p-6 w-full sm:w-80 md:w-72 lg:w-80 xl:w-96 text-white ${color} hover:scale-105 transition-transform duration-300`}
+        >
             <div className="text-center mb-4">
                 <h2 className="text-lg font-semibold">{title}</h2>
                 <img src={image} alt={planName} className="mx-auto mt-2 w-14 h-14 rounded-md" />
@@ -92,31 +110,41 @@ const PlanCard = ({ title, planName, duration, certification, features, image, c
             <button className="mt-6 bg-black text-white py-2 px-4 rounded-full flex items-center justify-center w-full hover:bg-gray-900 transition duration-300">
                 Buy Plan <i className="fas fa-arrow-right ml-2"></i>
             </button>
-        </div>
+        </motion.div>
     );
 };
 
 const BootCamp = () => {
     return (
-        <div className="bg-white text-gray-800 px-6 py-10">
-            <div className="text-center">
-                <h1 className="text-3xl md:text-4xl font-bold">
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={containerVariants}
+            viewport={{ once: true }}
+            className="bg-white text-gray-800 px-6 py-10"
+        >
+            <motion.div variants={containerVariants} className="text-center">
+                <motion.h1 variants={containerVariants} className="text-3xl md:text-4xl font-bold">
                     Plans for <span className="text-blue-600">Your Skill</span>{" "}
                     <span className="text-orange-500">For our Bootcamp</span>
-                </h1>
-                <p className="text-green-500 mt-2 text-sm md:text-base">HOW OUR BOOTCAMP COMPARES</p>
-                <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm md:text-base">
+                </motion.h1>
+                <motion.p variants={containerVariants} className="text-green-500 mt-2 text-sm md:text-base">
+                    HOW OUR BOOTCAMP COMPARES
+                </motion.p>
+                <motion.p variants={containerVariants} className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm md:text-base">
                     Prepare to create a strong portfolio of cloud-based applications, poised to captivate top tech recruiters and land the job you want.
-                </p>
-            </div>
+                </motion.p>
+            </motion.div>
 
-            <div className="flex flex-col md:flex-row gap-6 mt-10 place-items-center max-w-7xl m-auto">
+            <motion.div
+                variants={containerVariants}
+                className="flex flex-col md:flex-row gap-6 mt-10 place-items-center max-w-7xl m-auto"
+            >
                 {bootcampPlans.map((plan, index) => (
-                    
                     <PlanCard key={index} {...plan} />
                 ))}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 

@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaGift, FaChevronDown } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
+        document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
         return () => {
             document.body.style.overflow = "auto";
         };
@@ -17,47 +14,35 @@ const Header = () => {
 
     return (
         <>
-            <div
-                className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${isMobileMenuOpen ? "block" : "hidden"
-                    }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-            ></div>
+            {/* Overlay when mobile menu is open */}
+            {isMobileMenuOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                />
+            )}
 
             <nav className="flex items-center justify-between p-4 shadow-md sticky top-0 w-full z-50 bg-white">
-                <div className="flex items-center">
+                {/* Logo */}
+                <Link to="/">
                     <img
                         src="https://primepointinstitute.com/wp-content/uploads/2025/01/cropped-Prime-Point-Logo.png"
-                        alt="MyCaptain logo"
-                        className="h-8 w-full cursor-pointer"
-                        title="Prime Point institute "
+                        alt="Prime Point Institute"
+                        className="h-8 w-auto cursor-pointer"
+                        title="Prime Point Institute"
                     />
-                </div>
+                </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center space-x-6">
-                    <div className="relative group">
-                        <button className="text-gray-800 font-medium flex items-center">
-                            Pro courses <FaChevronDown className="ml-1" />
-                        </button>
-                    </div>
-                    <div className="relative group">
-                        <button className="text-gray-800 font-medium flex items-center">
-                            Kickstarter courses <FaChevronDown className="ml-1" />
-                        </button>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                        <FaGift className="text-yellow-500" />
-                        <button className="text-gray-800 font-medium">Refer & Earn</button>
-                        <span className="bg-blue-100 text-blue-500 text-xs font-semibold px-2 py-1 rounded-full">
-                            New
-                        </span>
-                    </div>
+                    <Link to="/full-stack-course" className="text-gray-800 font-medium">
+                        Full Stack Course
+                    </Link>
+                    <Link to="/ui-ux-course" className="text-gray-800 font-medium">
+                        UI-UX Course
+                    </Link>
                     <button className="text-gray-800 font-medium">Reviews</button>
-                    <div className="relative group">
-                        <button className="text-gray-800 font-medium flex items-center">
-                            Company <FaChevronDown className="ml-1" />
-                        </button>
-                    </div>
+                    <button className="text-gray-800 font-medium">Company</button>
                     <button className="text-orange-500 font-medium border border-orange-500 px-4 py-2 rounded hover:bg-orange-500 hover:text-white">
                         Login
                     </button>
@@ -73,8 +58,9 @@ const Header = () => {
 
                 {/* Mobile Menu */}
                 <div
-                    className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                        }`}
+                    className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ${
+                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                    }`}
                 >
                     <button
                         className="absolute top-4 right-4 text-gray-800"
@@ -83,19 +69,17 @@ const Header = () => {
                         <FaTimes size={24} />
                     </button>
                     <div className="flex flex-col items-start mt-12 space-y-4 px-6">
-                        <button className="text-gray-800 font-medium">Pro courses</button>
-                        <button className="text-gray-800 font-medium">Kickstarter courses</button>
-                        <button className="text-gray-800 font-medium flex items-center">
-                            <FaGift className="text-yellow-500 mr-2" /> Refer & Earn
-                            <span className="bg-blue-100 text-blue-500 text-xs font-semibold px-2 py-1 rounded-full ml-2">
-                                New
-                            </span>
-                        </button>
+                        <Link to="/full-stack-course" className="text-gray-800 font-medium">
+                            Full Stack Course
+                        </Link>
+                        <Link to="/ui-ux-course" className="text-gray-800 font-medium">
+                            UI-UX Course
+                        </Link>
                         <button className="text-gray-800 font-medium">Reviews</button>
                         <button className="text-gray-800 font-medium">Company</button>
-                        <p className="text-orange-500 font-medium border border-orange-500 px-4 py-2 rounded w-full hover:bg-orange-500">
+                        <button className="text-orange-500 font-medium border border-orange-500 px-4 py-2 rounded w-full hover:bg-orange-500 hover:text-white">
                             Login
-                        </p>
+                        </button>
                     </div>
                 </div>
             </nav>
