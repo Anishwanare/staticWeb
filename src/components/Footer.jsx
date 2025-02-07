@@ -9,8 +9,8 @@ const Footer = () => {
                     {/* Logo and About Section */}
                     <div className="md:w-1/3">
                         <img
-                            src="https://storage.googleapis.com/a1aa/image/1tSy7YGass6G9M4OvkwmlVQ4KDi7cOY9FD4nn1FQsQw.jpg"
-                            alt="MyCaptain Logo"
+                            src="https://primepointinstitute.com/wp-content/uploads/2025/01/cropped-Prime-Point-Logo.png"
+                            alt="Prime point institute"
                             className="mb-4 w-40"
                         />
                         <p className="text-gray-400 mb-4">

@@ -6,13 +6,17 @@ const Hero = () => {
         "Full Stack Cloud...",
         "Software Development...",
         "Data Science...",
+        "UX/UI Designer...",
+        "Frontend Developer...",
+        "Backend Developer...",
+        "Mobile Developer...",
         "Cybersecurity...",
         "Blockchain Engineering...",
-        "AI & Machine Learning...",
         "DevOps Engineering...",
         "Product Management...",
         "UI/UX Design...",
-        "Digital Marketing..."
+        "Digital Marketing...",
+        "SaaS FAS..."
     ];
 
     const [currentJob, setCurrentJob] = useState(jobData[0]);

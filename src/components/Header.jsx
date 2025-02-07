@@ -26,11 +26,11 @@ const Header = () => {
             <nav className="flex items-center justify-between p-4 shadow-md sticky top-0 w-full z-50 bg-white">
                 <div className="flex items-center">
                     <img
-                        src="https://storage.googleapis.com/a1aa/image/nQ95roWW1Tao7we7Nc4PKaxDWhxyKUA-62qCzwNGSl4.jpg"
+                        src="https://primepointinstitute.com/wp-content/uploads/2025/01/cropped-Prime-Point-Logo.png"
                         alt="MyCaptain logo"
-                        className="h-8 w-8"
+                        className="h-8 w-full cursor-pointer"
+                        title="Prime Point institute "
                     />
-                    <span className="ml-2 text-2xl font-bold text-gray-800">LOGO</span>
                 </div>
 
                 {/* Desktop Menu */}

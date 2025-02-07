@@ -29,7 +29,7 @@ const courses = [
 
 const Courses = () => {
   return (
-    <div className="bg-white text-gray-900 font-roboto pt-12 px-6 max-w-6xl m-auto">
+    <div className="bg-white text-gray-900 font-roboto py-12 px-6 max-w-6xl m-auto">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold">
           Our <span className="text-orange-500">Courses</span>

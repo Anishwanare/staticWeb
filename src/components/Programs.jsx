@@ -2,10 +2,10 @@ import React from "react";
 
 const Programs = () => {
     return (
-        <div className="bg-gray-50 flex justify-center items-center min-h-screen px-4 py-10">
+        <div className="bg-gray-50 flex justify-center items-center lg:min-h-screen px-4 py-10">
             <div className="max-w-5xl w-full">
                 <h1 className="text-4xl font-bold text-center text-orange-600 mb-8">
-                     Career Track Program
+                    Career Track Program
                 </h1>
                 <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-xl overflow-hidden">
                     {/* Image Section */}
