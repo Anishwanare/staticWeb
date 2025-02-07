@@ -43,9 +43,9 @@ const Header = () => {
                     </Link>
                     <button className="text-gray-800 font-medium">Reviews</button>
                     <button className="text-gray-800 font-medium">Company</button>
-                    <button className="text-orange-500 font-medium border border-orange-500 px-4 py-2 rounded hover:bg-orange-500 hover:text-white">
+                    {/* <button className="text-orange-500 font-medium border border-orange-500 px-4 py-2 rounded hover:bg-orange-500 hover:text-white">
                         Login
-                    </button>
+                    </button> */}
                 </div>
 
                 {/* Mobile Menu Toggle Button */}
@@ -77,9 +77,9 @@ const Header = () => {
                         </Link>
                         <button className="text-gray-800 font-medium">Reviews</button>
                         <button className="text-gray-800 font-medium">Company</button>
-                        <button className="text-orange-500 font-medium border border-orange-500 px-4 py-2 rounded w-full hover:bg-orange-500 hover:text-white">
+                        {/* <button className="text-orange-500 font-medium border border-orange-500 px-4 py-2 rounded w-full hover:bg-orange-500 hover:text-white">
                             Login
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </nav>
