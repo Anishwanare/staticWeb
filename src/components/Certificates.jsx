@@ -11,7 +11,7 @@ const certificateData = {
 
 const Certificates = () => {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-white px-6">
+        <div className="flex flex-col items-center justify-center md:min-h-screen bg-white px-6">
             <div className="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
 
                 <img
