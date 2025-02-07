@@ -42,6 +42,8 @@ const CourseDuration = ({ imgSrc, title, details, buttonText }) => {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                     viewport={{ once: true }}
+                    height={50}
+                    loading="lazy"
                 />
             </motion.div>
 

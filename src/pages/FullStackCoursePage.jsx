@@ -36,7 +36,7 @@ const FullStackCoursePage = () => {
 
             {/* Course Overview */}
             <CouseDuration
-                imgSrc="https://storage.googleapis.com/a1aa/image/L4qHCDF7Mlgp6EeEBOvQjskXaQo5V4gTVO1rcVi2R-8.jpg"
+                imgSrc="https://pilarr.com/wp-content/uploads/2022/06/What-is-full-stack-developer.png"
                 title="Full Stack Development"
                 details={[
                     { label: "📅 Duration", value: "45 Days" },

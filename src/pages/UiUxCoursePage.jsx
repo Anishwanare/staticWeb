@@ -33,7 +33,7 @@ const UiUxCoursePage = () => {
 
             {/* Course Overview */}
             <CouseDuration
-                imgSrc="https://storage.googleapis.com/a1aa/image/L4qHCDF7Mlgp6EeEBOvQjskXaQo5V4gTVO1rcVi2R-8.jpg"
+                imgSrc="https://community.nasscom.in/sites/default/files/media/images/What%20is%20UIUX%20Transformation%20and%20How%20Does%20it%20Benefit%20Businesses-04_0.jpg"
                 title="UI/UX Design"
                 details={[
                     { label: "📅 Duration", value: "30 Days" },
